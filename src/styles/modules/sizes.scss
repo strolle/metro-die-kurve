@@ -1,0 +1,7 @@
+@function leftWidth($canvasWidth, $scoreboardWidth) {
+  @return $scoreboardWidth - (($canvasWidth + $scoreboardWidth) % 2); /* so that width of #wrapper is always an even number */
+}
+
+@function totalWidth($canvasWidth, $borderThickness, $scoreboardWidth) {
+  @return $canvasWidth + $borderThickness + $scoreboardWidth;
+}

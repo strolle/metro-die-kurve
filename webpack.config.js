@@ -1,33 +1,59 @@
-const path = require("path");
-const DIR_SOURCE = "/src";
-const DIR_COMPILED = "/js";
+const webpack = require("webpack");
 
-module.exports = {
-    devtool: "source-map",
-    entry: {
-        zatacka: `.${DIR_SOURCE}/js/Main.js`,
-        splashscreen: `.${DIR_SOURCE}/js/SplashScreen.js`,
-    },
+module.exports = (env, argv) => {
+  const PRODUCTION = env && !!env.production;
+
+  console.log("Building for " + (PRODUCTION ? "production" : "development") + " ...");
+  console.log();
+
+  return {
+    mode: PRODUCTION ? "production" : "development",
+    entry: "./src/bootstrap.tsx",
     output: {
-        path: path.resolve(__dirname, `.${DIR_COMPILED}`),
-        publicPath: DIR_COMPILED,
-        filename: "[name].min.js",
+      filename: "./zatacka.js",
+    },
+    devtool: PRODUCTION ? "" : "eval-cheap-module-source-map",
+    resolve: {
+      extensions: [
+        ".ts",
+        ".tsx",
+        ".js",
+        ".scss",
+      ],
     },
     module: {
-        loaders: [
+      rules: [
+        {
+          test: /\.scss$/,
+          loaders: [
+            { loader: "style-loader" },
             {
-                loader: "babel-loader",
-                // Skip any files outside of your project"s source directory:
-                include: [
-                    path.resolve(__dirname, `./${DIR_SOURCE}`),
-                ],
-                // Only run `.js` files through Babel:
-                test: /\.js$/,
-                // Options to configure babel with:
-                query: {
-                    presets: ["es2015"],
-                }
+              loader: "css-loader",
+              options: {
+                sass: true,
+                sourceMap: true,
+                modules: true,
+                camelCase: true,
+                namedExport: true,
+                localIdentName: "[local]",
+              },
             },
-        ]
-    }
+            { loader: "sass-loader" },
+          ],
+        },
+        {
+          test: /\.tsx?$/,
+          loaders: [
+            { loader: "babel-loader" },
+            { loader: "ts-loader" },
+          ],
+        },
+      ],
+    },
+    plugins: [
+      new webpack.WatchIgnorePlugin([
+        /scss\.d\.ts$/,
+      ]),
+    ],
+  };
 };

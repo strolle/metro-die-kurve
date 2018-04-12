@@ -1,0 +1,53 @@
+@import "./sizes";
+
+@function isInt($x) {
+  @return round($x) == $x;
+}
+
+@mixin scaling(
+  $factor,
+  $canvasWidth,
+  $canvasHeight,
+  $scoreboardWidth,
+  $borderThickness
+) {
+  $totalWidth: totalWidth($canvasWidth, $borderThickness, $scoreboardWidth);
+  $suffix: if(isInt($factor), "", ".blurry");
+  $selector_body: "#app" + $suffix;
+  $selector_body_zatacka: "#app" + $suffix;
+  $renderings: if(isInt($factor),
+    (-moz-crisp-edges, pixelated),
+    (auto)
+  );
+
+  @media screen and (
+    min-width: $factor * $totalWidth
+  ) and (
+    min-height: $factor * $canvasHeight
+  ) {
+    #{$selector_body_zatacka} { justify-content: flex-end; }
+    #{$selector_body_zatacka} { transform-origin: right; }
+    #{$selector_body} #wrapper {
+      zoom: $factor;
+      -moz-transform: scale($factor);
+    }
+    #{$selector_body} * {
+      @each $r in $renderings {
+        image-rendering: $r;
+      }
+    }
+  }
+
+  @media screen and (
+    min-width: $factor * (
+        $totalWidth // canvas + right border + scoreboard
+      + $borderThickness // left border
+      + leftWidth($canvasWidth, $scoreboardWidth) // #left
+    )
+  ) and (
+    min-height: $factor * $canvasHeight
+  ) {
+    #{$selector_body_zatacka} { justify-content: center; }
+    #{$selector_body_zatacka} #wrapper { transform-origin: center; }
+  }
+}

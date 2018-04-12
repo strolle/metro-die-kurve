@@ -1,23 +1,26 @@
 {
-  "name": "zatacka",
+  "name": "kurve",
   "description": "Achtung, die Kurve! in JavaScript",
   "scripts": {
-    "sass-build": "node-sass --output css --source-map true --source-map-contents --output-style compressed src/css",
-    "sass-watch": "node-sass --watch --output css --source-map true --source-map-contents src/css",
-    "webpack-build": "webpack --optimize-minimize",
     "webpack-watch": "webpack-dev-server",
-    "build": "npm run webpack-build && npm run sass-build",
-    "watch": "npm run sass-build && concurrently --kill-others \"npm run sass-watch\" \"npm run webpack-watch\"",
-    "deploy": "git checkout master && git merge --no-ff -m \"Merge branch 'develop'\" develop && npm run build && git add -f js css && git commit -m \"Deploy\""
+    "pre-build": "atsm -p src/**/*.scss",
+    "build": "npm run pre-build && webpack --debug",
+    "build-production": "npm run pre-build && webpack --env.production",
+    "watch": "npm run pre-build && concurrently --kill-others \"npm run sass-watch\" \"npm run webpack-watch\"",
+    "deploy": "git checkout gh-pages && git merge --no-ff -m \"Merge branch 'master'\" master && npm run build-production && git add -f dist && git commit -m \"Deploy\" && git subtree push --prefix dist origin gh-pages"
   },
   "author": "Simon Alling",
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
-    "concurrently": "^3.4.0",
-    "node-sass": "^4.5.2",
-    "webpack": "^2.3.1",
-    "webpack-dev-server": "^2.4.2"
+    "awesome-typed-sass-modules": "^1.0.2",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.8.3",
+    "preact": "^8.2.7",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.8.1",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   }
 }

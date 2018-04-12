@@ -1,0 +1,129 @@
+@import "../modules/scaling";
+@import "../modules/sizes";
+
+@import "colors";
+@import "defaults";
+
+$CANVAS_WIDTH: 559px; /* original width */
+$CANVAS_HEIGHT: 480px;
+$CANVAS_BORDER: 4px;
+$SCOREBOARD_WIDTH: 77px;
+
+:export {
+  CANVAS_BORDER: $CANVAS_BORDER;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: black;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  font-size: 12px;
+  background-color: $GRAY_BACKGROUND;
+}
+
+#splashscreen {
+  align-items: center;
+  background-color: black;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+#wrapper {
+  align-items: center;
+  display: flex;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#scoreboard {
+  height: $CANVAS_HEIGHT;
+  padding: 20px 12px 0 9px;
+  width: $SCOREBOARD_WIDTH;
+}
+
+#left {
+height: $CANVAS_HEIGHT;
+  width: leftWidth(
+    $canvasWidth: $CANVAS_WIDTH,
+    $scoreboardWidth: $SCOREBOARD_WIDTH
+  );
+}
+
+canvas {
+  background-color: black;
+}
+
+.border {
+  border-style: solid;
+  border-width: 1px;
+  display: flex; /* to prevent weird extra space at the bottom */
+}
+
+#border1 {
+  border-color: $GRAY_BORDER_1;
+  position: relative; /* to allow absolute positioning of descendants */
+}
+
+#border2 {
+  border-color: $GRAY_BORDER_2;
+}
+
+#border3 {
+  border-color: $GRAY_BORDER_3;
+}
+
+#border4 {
+  border-color: $GRAY_BORDER_4;
+}
+
+
+
+
+@media screen and (
+  max-width: totalWidth(
+    $canvasWidth: $CANVAS_WIDTH,
+    $borderThickness: $CANVAS_BORDER,
+    $scoreboardWidth: $SCOREBOARD_WIDTH
+  ) - 1px
+) {
+  #left { display: none; }
+  #app { justify-content: flex-start; }
+  #wrapper { transform-origin: center; }
+  .border { border-left-width: 0; }
+}
+
+@mixin scalingFor($factor) {
+  @include scaling(
+    $factor: $factor,
+    $canvasWidth: $CANVAS_WIDTH,
+    $canvasHeight: $CANVAS_HEIGHT,
+    $scoreboardWidth: $SCOREBOARD_WIDTH,
+    $borderThickness: $CANVAS_BORDER
+  );
+}
+
+@each $factor in (1, 1.25, 1.5, 1.75) {
+  @include scalingFor($factor);
+}
+@for $factor from 2 through 8 {
+  @include scalingFor($factor);
+}
