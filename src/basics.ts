@@ -31,3 +31,7 @@ export function assert<T>(requirement: Predicate<T>, msg?: string): (x: T) => T 
     ].join("\n"));
   };
 }
+
+export function assertUnreachable(x: never): never {
+  throw new Error(x);
+}
