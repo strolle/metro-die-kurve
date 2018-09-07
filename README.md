@@ -4,6 +4,7 @@ The aim of this project is to create an HTML5/JS remake of the original *Achtung
 
 ## Mods in fork
 * Added a grey player
+* Safer spawns
 
 ## Play
 
