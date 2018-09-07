@@ -2,6 +2,8 @@
 
 The aim of this project is to create an HTML5/JS remake of the original *Achtung, die Kurve!* from 1995.
 
+## Mods in fork
+* Added a grey player
 
 ## Play
 

@@ -70,7 +70,8 @@ const Zatacka = (() => {
             { id: 3, name: "Orange", color: "#FF7900", keyL: KEY.M                                 , keyR: KEY.COMMA                     },
             { id: 4, name: "Green" , color: "#00CB00", keyL: KEY.LEFT_ARROW                        , keyR: KEY.DOWN_ARROW                },
             { id: 5, name: "Pink"  , color: "#DF51B6", keyL: [ KEY.DIVIDE, KEY.END, KEY.PAGE_DOWN ], keyR: [ KEY.MULTIPLY, KEY.PAGE_UP ] },
-            { id: 6, name: "Blue"  , color: "#00A2CB", keyL: MOUSE.LEFT                            , keyR: MOUSE.RIGHT                   }
+            { id: 6, name: "Blue"  , color: "#00A2CB", keyL: MOUSE.LEFT                            , keyR: MOUSE.RIGHT                   },
+            { id: 7, name: "Grey"  , color: "#D5D5D5", keyL: KEY.D                                 , keyR: KEY.C                         }
         ])
     });
 
