@@ -8,7 +8,8 @@
     "webpack-watch": "webpack-dev-server",
     "build": "npm run webpack-build && npm run sass-build",
     "watch": "npm run sass-build && concurrently --kill-others \"npm run sass-watch\" \"npm run webpack-watch\"",
-    "deploy": "git checkout master && git merge --no-ff -m \"Merge branch 'develop'\" develop && npm run build && git add -f js css && git commit -m \"Deploy\""
+    "deploy": "git checkout master && git merge --no-ff -m \"Merge branch 'develop'\" develop && npm run build && git add -f js css && git commit -m \"Deploy\"",
+    "start": "webpack-dev-server --open --host 0.0.0.0 --port 5555"
   },
   "author": "Simon Alling",
   "devDependencies": {
