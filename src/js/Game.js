@@ -13,7 +13,7 @@ export class Game {
         this.constructor.MAX_TARGET_SCORE = 1000;
         this.constructor.MAX_PLAYERS = 255; // since we use a Uint8Array
         this.constructor.MAX_QUOTA_THAT_SPAWN_CIRCLES_MAY_FILL = 0.5; // out of available spawn area
-        this.constructor.DESIRED_MINIMUM_SPAWN_DISTANCE_TURNING_RADIUS_FACTOR = 1;
+        this.constructor.DESIRED_MINIMUM_SPAWN_DISTANCE_TURNING_RADIUS_FACTOR = 2.5;
         this.constructor.KONEC_HRY = "KONEC HRY!";
 
         if (renderer === undefined) {
