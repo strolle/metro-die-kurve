@@ -3,7 +3,9 @@
 The aim of this project is to create an HTML5/JS remake of the original *Achtung, die Kurve!* from 1995.
 
 ## Mods in fork
-* Added a grey player
+* Added a grey, purple and turquoise player
+* Safer spawns
+* Quicker spawns
 
 ## Play
 

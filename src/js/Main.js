@@ -34,12 +34,12 @@ const Zatacka = (() => {
         thickness: 3, // Kuxels
         speed: 60, // Kuxels per second
         turningRadius: 28.5, // Kuxels (NB: _radius_)
-        minSpawnAngle: -Math.PI/2, // radians
-        maxSpawnAngle:  Math.PI/2, // radians
+        minSpawnAngle: -Math.PI/1.8, // radians
+        maxSpawnAngle:  Math.PI/1.8, // radians
         spawnMargin: 100, // Kuxels
-        preventSpawnkill: false,
+        preventSpawnkill: true,
         flickerFrequency: 20, // Hz, when spawning
-        flickerDuration: 830, // ms, when spawning
+        flickerDuration: 530, // ms, when spawning
         minHoleInterval: 90, // Kuxels
         maxHoleInterval: 300, // Kuxels
         minHoleSize: 5, // Kuxels
@@ -71,7 +71,9 @@ const Zatacka = (() => {
             { id: 4, name: "Green" , color: "#00CB00", keyL: KEY.LEFT_ARROW                        , keyR: KEY.DOWN_ARROW                },
             { id: 5, name: "Pink"  , color: "#DF51B6", keyL: [ KEY.DIVIDE, KEY.END, KEY.PAGE_DOWN ], keyR: [ KEY.MULTIPLY, KEY.PAGE_UP ] },
             { id: 6, name: "Blue"  , color: "#00A2CB", keyL: MOUSE.LEFT                            , keyR: MOUSE.RIGHT                   },
-            { id: 7, name: "Grey"  , color: "#D5D5D5", keyL: KEY.D                                 , keyR: KEY.C                         }
+            { id: 7, name: "Grey"  , color: "#D5D5D5", keyL: KEY.D                                 , keyR: KEY.C                         },
+            { id: 8, name: "Purple", color: "#DF8DFF", keyL: KEY.T                                 , keyR: KEY.Y                         },
+            { id: 9, name: "Turq"  , color: "#4AFEAB", keyL: KEY.O                                 , keyR: KEY.P                         }
         ])
     });
 

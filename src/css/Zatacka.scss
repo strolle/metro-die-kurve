@@ -278,7 +278,7 @@ button:hover {
 #lobby {
     padding-left: 81px;
     padding-top: 50px;
-    padding-bottom: 130px; /* 130 = 480 - 7 * 50, where 50 is the total height of each player's controls and 7 is 6 players plus 1 for margin */
+    padding-bottom: 30px; /* 130 = 480 - 7 * 50, where 50 is the total height of each player's controls and 7 is 6 players plus 1 for margin */
 }
 
 #lobby #controls {
@@ -287,7 +287,7 @@ button:hover {
 }
 
 #lobby #controls li {
-    height: 40px;
+    height: 25px;
 }
 
 #lobby #controls li div {
@@ -312,18 +312,22 @@ button:hover {
 
 #lobby #controls .red.controls    { background-position:    0px    0px; }
 #lobby #controls .red.ready       { background-position: -160px    0px; }
-#lobby #controls .yellow.controls { background-position:    0px  -40px; }
-#lobby #controls .yellow.ready    { background-position: -160px  -40px; }
-#lobby #controls .orange.controls { background-position:    0px -80px; }
-#lobby #controls .orange.ready    { background-position: -160px -80px; }
-#lobby #controls .green.controls  { background-position:    0px -120px; }
-#lobby #controls .green.ready     { background-position: -160px -120px; }
-#lobby #controls .pink.controls   { background-position:    0px -160px; }
-#lobby #controls .pink.ready      { background-position: -160px -160px; }
-#lobby #controls .blue.controls   { background-position:    0px -200px; }
-#lobby #controls .blue.ready      { background-position: -160px -200px; }
-#lobby #controls .grey.controls   { background-position:    0px -240px; }
-#lobby #controls .grey.ready      { background-position: -160px -240px; }
+#lobby #controls .yellow.controls { background-position:    0px  -25px; }
+#lobby #controls .yellow.ready    { background-position: -160px  -25px; }
+#lobby #controls .orange.controls { background-position:    0px -50px; }
+#lobby #controls .orange.ready    { background-position: -160px -50px; }
+#lobby #controls .green.controls  { background-position:    0px -75px; }
+#lobby #controls .green.ready     { background-position: -160px -75px; }
+#lobby #controls .pink.controls   { background-position:    0px -100px; }
+#lobby #controls .pink.ready      { background-position: -160px -100px; }
+#lobby #controls .blue.controls   { background-position:    0px -125px; }
+#lobby #controls .blue.ready      { background-position: -160px -125px; }
+#lobby #controls .grey.controls   { background-position:    0px -150px; }
+#lobby #controls .grey.ready      { background-position: -160px -150px; }
+#lobby #controls .purple.controls { background-position:    0px -175px; }
+#lobby #controls .purple.ready    { background-position: -160px -175px; }
+#lobby #controls .turq.controls   { background-position:    0px -200px; }
+#lobby #controls .turq.ready      { background-position: -160px -200px; }
 
 #button-show-settings {
     background-position: 0 -32px;
@@ -599,10 +603,12 @@ button:hover {
 .pink.digits   div { background-image: url("../resources/kurve-digits-pink.png");   }
 .blue.digits   div { background-image: url("../resources/kurve-digits-blue.png");   }
 .grey.digits   div { background-image: url("../resources/kurve-digits-grey.png");   }
+.purple.digits div { background-image: url("../resources/kurve-digits-purple.png");   }
+.turq.digits   div { background-image: url("../resources/kurve-digits-turq.png");   }
 
 /* Scoreboard digits: */
 #scoreboard .digits {
-    height: 65px;
+    height: 50px;
 }
 
 #scoreboard .digits > div {
